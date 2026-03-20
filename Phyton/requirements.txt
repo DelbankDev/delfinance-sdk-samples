@@ -1,0 +1,3 @@
+# Dependencias do SAMPLE API
+delfinance-api-sdk
+python-dotenv

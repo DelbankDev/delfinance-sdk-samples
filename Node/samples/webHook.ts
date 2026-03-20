@@ -1,11 +1,6 @@
-import {
-    SdkClientFactory as sdkClientFactory,
-    delSdkOptions,
-    webHookRequest,
-} from '@delbank/del-sdk';
-
+// Tipos importados apenas para referência (podem não ser necessários na nova versão)
 export async function runWebHookSample(
-    options: delSdkOptions,
+    client: any,
     getEnv: (name: string) => string
 ): Promise<void> {
     console.log('\n=========================================================');
@@ -14,9 +9,8 @@ export async function runWebHookSample(
 
     try {
         console.log('--- createWebHook ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: webHookRequest = {
+        const req: any = {
             eventType: getEnv('WEBHOOK_EVENT_TYPE'),
             url: getEnv('WEBHOOK_URL'),
             authorization: getEnv('WEBHOOK_AUTHORIZATION'),
@@ -33,7 +27,6 @@ export async function runWebHookSample(
 
     try {
         console.log('--- getWebHooks ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.webHookService.getWebHooks();
 
@@ -45,7 +38,6 @@ export async function runWebHookSample(
 
     try {
         console.log('--- getWebHookById ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.webHookService.getWebHookById(getEnv('WEBHOOK_ID'));
 
@@ -57,9 +49,8 @@ export async function runWebHookSample(
 
     try {
         console.log('--- updateWebHook ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: webHookRequest = {
+        const req: any = {
             id: getEnv('WEBHOOK_ID'),
             eventType: getEnv('WEBHOOK_EVENT_TYPE'),
             url: getEnv('WEBHOOK_URL'),
@@ -77,7 +68,6 @@ export async function runWebHookSample(
 
     try {
         console.log('--- deleteWebHookById ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.webHookService.deleteWebHookById(getEnv('WEBHOOK_ID'));
 

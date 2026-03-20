@@ -1,14 +1,6 @@
-import type { deleteKeyRequest } from '@delbank/del-sdk/dist/shared/common/interfaces/pix';
-import {
-    SdkClientFactory as sdkClientFactory,
-    delSdkOptions,
-    entriesType,
-    authEntriesRequest,
-    authEntriesType,
-} from '@delbank/del-sdk';
-
+// Tipos importados apenas para referência (podem não ser necessários na nova versão)
 export async function runPixKeysSample(
-    options: delSdkOptions,
+    client: any,
     getEnv: (name: string) => string
 ): Promise<void> {
     console.log('\n=========================================================');
@@ -17,9 +9,8 @@ export async function runPixKeysSample(
 
     try {
         console.log('--- postCreateKey ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const result = await client.pixService.postCreateKey(entriesType.EVP);
+        const result = await client.pixService.postCreateKey('EVP');
 
         console.log('Sucesso:', JSON.stringify(result, null, 2));
     } catch (error) {
@@ -29,7 +20,6 @@ export async function runPixKeysSample(
 
     try {
         console.log('--- getKeys ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         console.log('--- Buscando chaves ---');
 
@@ -43,10 +33,9 @@ export async function runPixKeysSample(
 
     try {
         console.log('--- postAuthCreateKey ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: authEntriesRequest = {
-            sender: authEntriesType.SMS,
+        const req: any = {
+            sender: 'SMS',
             receiver: '+5579986545308',
             payload: '{{code}}',
         };
@@ -61,11 +50,10 @@ export async function runPixKeysSample(
 
     try {
         console.log('--- deleteKey ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: deleteKeyRequest = {
+        const req: any = {
             key: 'key-exemple',
-            entryType: entriesType.EVP,
+            entryType: 'EVP',
         };
 
         const result = await client.pixService.deleteKey(req);

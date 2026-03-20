@@ -4,13 +4,20 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "build:transfer": "tsc samples/pixTransfer.ts",
+    "build:keys": "tsc samples/pixKeys.ts",
+    "build:qrcode": "tsc samples/pixQRCode.ts",
+    "build:webhook": "tsc samples/webHook.ts",
+    "build:bankslip": "tsc samples/bankSlip.ts",
+    "build:main": "tsc sample.ts",
     "test:sample": "ts-node -r dotenv/config sample.ts"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@delbank/del-sdk": "^0.4.0"
+    "@delbank/del-sdk": "^0.4.0",
+    "@delbank/delfinance-api-sdk": "^0.5.5"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",

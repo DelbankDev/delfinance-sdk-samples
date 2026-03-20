@@ -1,13 +1,6 @@
-import {
-    SdkClientFactory as sdkClientFactory,
-    delSdkOptions,
-    bankSlipRequest,
-    bankSlipPaymentRequest,
-    updateBankSlip,
-} from '@delbank/del-sdk';
-
+// Tipos importados apenas para referência (podem não ser necessários na nova versão)
 export async function runBankSlipSample(
-    options: delSdkOptions,
+    client: any,
     getEnv: (name: string) => string
 ): Promise<void> {
     console.log('\n=========================================================');
@@ -16,9 +9,8 @@ export async function runBankSlipSample(
 
     try {
         console.log('--- createBankSlip ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: bankSlipRequest = {
+        const req: any = {
             type: 'BANKSLIP',
             dueDate: '2026-12-31',
             amount: 100.00,
@@ -40,7 +32,6 @@ export async function runBankSlipSample(
 
     try {
         console.log('--- getBankSlipByCorrelationId ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.bankSlipService.getBankSlipByCorrelationId(
             getEnv('BANKSLIP_CORRELATION_ID')
@@ -54,7 +45,6 @@ export async function runBankSlipSample(
 
     try {
         console.log('--- getListBankSlip ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.bankSlipService.getListBankSlip({
             startDate: '2026-01-01',
@@ -71,9 +61,8 @@ export async function runBankSlipSample(
 
     try {
         console.log('--- updateBankSlip ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: updateBankSlip = {
+        const req: any = {
             correlationId: getEnv('BANKSLIP_CORRELATION_ID'),
             dueDate: '2027-01-31',
         };
@@ -88,7 +77,6 @@ export async function runBankSlipSample(
 
     try {
         console.log('--- postBaiWhenBankSlip ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.bankSlipService.postBaiWhenBankSlip(
             getEnv('BANKSLIP_CORRELATION_ID')
@@ -102,9 +90,8 @@ export async function runBankSlipSample(
 
     try {
         console.log('--- postPaymentBankSlip ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: bankSlipPaymentRequest = {
+        const req: any = {
             amount: 100.00,
             digitableLine: getEnv('BANKSLIP_DIGITABLE_LINE'),
         };
@@ -119,7 +106,6 @@ export async function runBankSlipSample(
 
     try {
         console.log('--- getPaymentBankSlip ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.bankSlipService.getPaymentBankSlip(getEnv('BANKSLIP_BARCODE'));
 
@@ -131,7 +117,6 @@ export async function runBankSlipSample(
 
     try {
         console.log('--- getDownloadBankSlip ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.bankSlipService.getDownloadBankSlip(getEnv('BANKSLIP_OUR_NUMBER'));
 

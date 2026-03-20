@@ -1,13 +1,6 @@
-import {
-    SdkClientFactory as sdkClientFactory,
-    delSdkOptions,
-    transferRequest,
-    transferTEDRequest,
-    accountType,
-} from '@delbank/del-sdk';
-
+// Tipos importados apenas para referência (podem não ser necessários na nova versão)
 export async function runPixTransferSample(
-    options: delSdkOptions,
+    client: any,
     getEnv: (name: string) => string
 ): Promise<void> {
     console.log('\n=========================================================');
@@ -16,7 +9,6 @@ export async function runPixTransferSample(
 
     try {
         console.log('--- getTransfer ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const transferId = getEnv('END_TO_END_ID');
         console.log(`--- Buscando Transferência: ${transferId} ---`);
@@ -31,7 +23,6 @@ export async function runPixTransferSample(
 
     try {
         console.log('--- postPaymentInitalization ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const key = {
             key: getEnv('PIX_KEY'),
@@ -49,7 +40,6 @@ export async function runPixTransferSample(
 
     try {
         console.log('--- postQRCodePaymentInitalization ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const payload = getEnv('PAYLOAD_QR_CODE');
         console.log(`--- Payload QRCode: ${payload} ---`);
@@ -64,9 +54,8 @@ export async function runPixTransferSample(
 
     try {
         console.log('--- postInternalTransfer ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: transferRequest = {
+        const req: any = {
             beneficiaryAccount: getEnv('BENEFICIARY_ACCOUNT'),
             amount: 25,
             description: '',
@@ -84,16 +73,15 @@ export async function runPixTransferSample(
 
     try {
         console.log('--- postTEDTransfer ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: transferTEDRequest = {
+        const req: any = {
             amount: 25,
             description: '',
             beneficiary: {
                 participantIspb: getEnv('ISPB'),
                 number: getEnv('BENEFICIARY_ACCOUNT'),
                 branch: getEnv('BENEFICIARY_BRANCH'),
-                type: accountType.CURRENT,
+                type: 'CURRENT',
                 holder: {
                     document: getEnv('BENEFICIARY_HOLDER_DOCUMENT'),
                     name: getEnv('BENEFICIARY_HOLDER_NAME'),

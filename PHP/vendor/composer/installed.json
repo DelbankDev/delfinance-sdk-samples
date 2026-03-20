@@ -1,0 +1,49 @@
+{
+    "packages": [
+        {
+            "name": "delfinance/delfinance-api-sdk",
+            "version": "v0.6.1",
+            "version_normalized": "0.6.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DelbankDev/php-sdk.git",
+                "reference": "a497c069b03fedfe83bdfd39fd742fd7d43dc95c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DelbankDev/php-sdk/zipball/a497c069b03fedfe83bdfd39fd742fd7d43dc95c",
+                "reference": "a497c069b03fedfe83bdfd39fd742fd7d43dc95c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=7.2"
+            },
+            "time": "2026-03-16T14:20:17+00:00",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "Delfinance\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Delfinance Team",
+                    "email": "dev@delfinance.com"
+                }
+            ],
+            "description": "SDK oficial da Delfinance para PHP",
+            "support": {
+                "issues": "https://github.com/DelbankDev/php-sdk/issues",
+                "source": "https://github.com/DelbankDev/php-sdk/tree/v0.6.1"
+            },
+            "install-path": "../delfinance/delfinance-api-sdk"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

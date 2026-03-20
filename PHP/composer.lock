@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "8a24c287cc8a32f0195a43300704907c",
+    "packages": [
+        {
+            "name": "delfinance/delfinance-api-sdk",
+            "version": "v0.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DelbankDev/php-sdk.git",
+                "reference": "a497c069b03fedfe83bdfd39fd742fd7d43dc95c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DelbankDev/php-sdk/zipball/a497c069b03fedfe83bdfd39fd742fd7d43dc95c",
+                "reference": "a497c069b03fedfe83bdfd39fd742fd7d43dc95c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Delfinance\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Delfinance Team",
+                    "email": "dev@delfinance.com"
+                }
+            ],
+            "description": "SDK oficial da Delfinance para PHP",
+            "support": {
+                "issues": "https://github.com/DelbankDev/php-sdk/issues",
+                "source": "https://github.com/DelbankDev/php-sdk/tree/v0.6.1"
+            },
+            "time": "2026-03-16T14:20:17+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
+}

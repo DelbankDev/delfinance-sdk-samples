@@ -1,0 +1,106 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+require __DIR__ . '/../vendor/autoload.php';
+
+// -----------------------------------------------------------
+// Carrega variáveis do arquivo .env (se existir)
+// -----------------------------------------------------------
+$envFile = __DIR__ . '/../.env';
+if (file_exists($envFile)) {
+    foreach (file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+        $line = trim($line);
+        if ($line === '' || $line[0] === '#') {
+            continue;
+        }
+        [$name, $value] = array_pad(explode('=', $line, 2), 2, '');
+        $name  = trim($name);
+        $value = trim($value);
+        // Remove surrounding single or double quotes
+        if (strlen($value) >= 2 && (
+            ($value[0] === "'" && $value[-1] === "'") ||
+            ($value[0] === '"' && $value[-1] === '"')
+        )) {
+            $value = substr($value, 1, -1);
+        }
+        putenv(sprintf('%s=%s', $name, $value));
+    }
+}
+
+use App\Samples\PixTransferSample;
+use App\Samples\PixKeysSample;
+use App\Samples\PixQrCodeSample;
+use App\Samples\ChargesSample;
+use App\Samples\WebhookSample;
+
+$commands = [
+    'help'         => 'Exibe esta ajuda',
+    'check-sdk'    => 'Verifica se o SDK foi carregado',
+    'pix-transfer' => 'Executa amostras de Transferência Pix e TED',
+    'pix-keys'     => 'Executa amostras de Chaves Pix (DICT)',
+    'pix-qrcode'   => 'Executa amostras de QR Code Pix',
+    'charges'      => 'Executa amostras de Cobranças (Boleto)',
+    'webhook'      => 'Executa amostras de Webhooks',
+    'all'          => 'Executa todos os exemplos',
+];
+
+$command = $argv[1] ?? 'help';
+
+switch ($command) {
+    case 'help':
+        echo "Delfinance PHP Console - SDK Samples\n\n";
+        echo "Uso: php bin/console <comando>\n\n";
+        echo "Comandos disponíveis:\n";
+        foreach ($commands as $cmd => $desc) {
+            printf("  %-16s %s\n", $cmd, $desc);
+        }
+        echo "\nVariáveis de ambiente necessárias (arquivo .env):\n";
+        echo "  AUTH_ACCOUNT_API_KEY, AUTH_ACCOUNT_ID, ENVIRONMENT\n";
+        echo "  Consulte .env.example para a lista completa.\n";
+        exit(0);
+
+    case 'check-sdk':
+        if (\Composer\InstalledVersions::isInstalled('delfinance/delfinance-api-sdk')) {
+            $version = \Composer\InstalledVersions::getPrettyVersion('delfinance/delfinance-api-sdk') ?? 'desconhecida';
+            echo "SDK instalado: delfinance/delfinance-api-sdk ({$version})\n";
+            exit(0);
+        }
+        fwrite(STDERR, "SDK nao encontrado em vendor/. Execute: php composer.phar install\n");
+        exit(1);
+
+    case 'pix-transfer':
+        (new PixTransferSample())->run();
+        break;
+
+    case 'pix-keys':
+        (new PixKeysSample())->run();
+        break;
+
+    case 'pix-qrcode':
+        (new PixQrCodeSample())->run();
+        break;
+
+    case 'charges':
+        (new ChargesSample())->run();
+        break;
+
+    case 'webhook':
+        (new WebhookSample())->run();
+        break;
+
+    case 'all':
+        echo "--- Iniciando SDK Client ---\n";
+        (new PixTransferSample())->run();
+        (new PixKeysSample())->run();
+        (new PixQrCodeSample())->run();
+        (new ChargesSample())->run();
+        (new WebhookSample())->run();
+        break;
+
+    default:
+        fwrite(STDERR, "Comando invalido: {$command}\n");
+        fwrite(STDERR, "Execute 'php bin/console help' para ver os comandos disponíveis.\n");
+        exit(1);
+}

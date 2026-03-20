@@ -1,0 +1,17 @@
+{
+  "name": "sample/php-console",
+  "description": "Console PHP starter using Delfinance SDK",
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "delfinance/delfinance-api-sdk": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "scripts": {
+    "start": "php bin/console"
+  }
+}

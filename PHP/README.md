@@ -1,6 +1,6 @@
-# Console PHP com Delfinance SDK
+# Delfinance SDK Samples (PHP)
 
-Projeto base de console em PHP, sem framework, pronto para evoluir.
+Exemplo simples de uso do SDK da Delfinance via console.
 
 ## Requisitos
 
@@ -8,23 +8,44 @@ Projeto base de console em PHP, sem framework, pronto para evoluir.
 
 ## Instalação
 
+No diretório do projeto, rode:
+
 ```bash
-composer install
+php composer.phar install
 ```
 
-## Rodando no terminal
+## Configuração
+
+1. Crie o arquivo `.env` (ou use o que já existe).
+2. Preencha as credenciais e dados de teste.
+3. Use `.env.example` como referência das variáveis.
+
+## Comandos
+
+Mostrar ajuda:
 
 ```bash
 php bin/console help
 ```
 
-Para validar o carregamento do SDK:
+Validar SDK instalado:
 
 ```bash
 php bin/console check-sdk
 ```
 
-## Estrutura
+Executar exemplos por grupo:
 
-- `bin/console`: ponto de entrada CLI.
-- `src/`: código de domínio da aplicação.
+```bash
+php bin/console pix-transfer
+php bin/console pix-keys
+php bin/console pix-qrcode
+php bin/console charges
+php bin/console webhook
+```
+
+Executar tudo:
+
+```bash
+php bin/console all
+```

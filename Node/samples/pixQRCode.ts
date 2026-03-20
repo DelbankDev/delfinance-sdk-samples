@@ -1,11 +1,6 @@
-import {
-    SdkClientFactory as sdkClientFactory,
-    delSdkOptions,
-    pixQRCodeRequest,
-} from '@delbank/del-sdk';
-
+// Tipos importados apenas para referência (podem não ser necessários na nova versão)
 export async function runPixQRCodeSample(
-    options: delSdkOptions,
+    client: any,
     getEnv: (name: string) => string
 ): Promise<void> {
     console.log('\n=========================================================');
@@ -14,9 +9,8 @@ export async function runPixQRCodeSample(
 
     try {
         console.log('--- postQRCodeStatic ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: pixQRCodeRequest = {
+        const req: any = {
             correlationId: getEnv('QRCODE_CORRELATION_ID'),
             amount: 50.00,
             pixKey: getEnv('PIX_KEY'),
@@ -33,7 +27,6 @@ export async function runPixQRCodeSample(
 
     try {
         console.log('--- getQRCodeStatic ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.pixService.getQRCodeStatic(getEnv('QRCODE_STATIC_ID'));
 
@@ -45,7 +38,6 @@ export async function runPixQRCodeSample(
 
     try {
         console.log('--- getQRCodeStaticPayment ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.pixService.getQRCodeStaticPayment(getEnv('QRCODE_STATIC_ID'));
 
@@ -57,7 +49,6 @@ export async function runPixQRCodeSample(
 
     try {
         console.log('--- patchQRCodeCancel ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.pixService.patchQRCodeCancel(getEnv('QRCODE_STATIC_ID'));
 
@@ -69,9 +60,8 @@ export async function runPixQRCodeSample(
 
     try {
         console.log('--- postQRCodeDynamicImediate ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: pixQRCodeRequest = {
+        const req: any = {
             correlationId: getEnv('QRCODE_CORRELATION_ID'),
             amount: 75.00,
             pixKey: getEnv('PIX_KEY'),
@@ -89,7 +79,6 @@ export async function runPixQRCodeSample(
 
     try {
         console.log('--- getQRCodeDynamicImediate ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.pixService.getQRCodeDynamicImediate(getEnv('QRCODE_DYNAMIC_IMEDIATE_ID'));
 
@@ -101,7 +90,6 @@ export async function runPixQRCodeSample(
 
     try {
         console.log('--- patchQRCodeDynamicImediateCancel ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.pixService.patchQRCodeDynamicImediateCancel(getEnv('QRCODE_DYNAMIC_IMEDIATE_ID'));
 
@@ -113,9 +101,8 @@ export async function runPixQRCodeSample(
 
     try {
         console.log('--- postQRCodeDynamicDueDate ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
-        const req: pixQRCodeRequest = {
+        const req: any = {
             correlationId: getEnv('QRCODE_CORRELATION_ID'),
             amount: 120.00,
             pixKey: getEnv('PIX_KEY'),
@@ -133,7 +120,6 @@ export async function runPixQRCodeSample(
 
     try {
         console.log('--- getQRCodeDynamicDueDate ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.pixService.getQRCodeDynamicDueDate(getEnv('QRCODE_DYNAMIC_DUEDATE_ID'));
 
@@ -145,7 +131,6 @@ export async function runPixQRCodeSample(
 
     try {
         console.log('--- patchQRCodeDynamicDueDateCancel ---');
-        const client = sdkClientFactory.createServicesClient(options);
 
         const result = await client.pixService.patchQRCodeDynamicDueDateCancel(getEnv('QRCODE_DYNAMIC_DUEDATE_ID'));
 

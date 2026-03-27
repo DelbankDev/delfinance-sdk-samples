@@ -32,12 +32,12 @@ Gerenciamento completo de cobranças via boleto bancário.
 
 ---
 
-### 2. **Chaves PIX (PIX Keys)** 🔑
-Gerenciamento de chaves PIX para recebimento de transferências.
+### 2. **Chaves Pix (Pix Keys)** 🔑
+Gerenciamento de chaves Pix para recebimento de transferências.
 
 **Funcionalidades:**
-- Criar chaves PIX (EVP, CPF, CNPJ, Email, Telefone)
-- Listar chaves PIX cadastradas
+- Criar chaves Pix (EVP, CPF, CNPJ, Email, Telefone)
+- Listar chaves Pix cadastradas
 - Autenticação para criação de chaves
 - Validação de chaves
 - Gerenciamento de autorizações
@@ -49,8 +49,8 @@ Gerenciamento de chaves PIX para recebimento de transferências.
 
 ---
 
-### 3. **QR Code PIX** 🔲
-Geração e gerenciamento de QR Codes PIX para cobranças instantâneas.
+### 3. **QR Code Pix** 🔲
+Geração e gerenciamento de QR Codes Pix para cobranças instantâneas.
 
 **Funcionalidades:**
 - Criar QR Codes estáticos
@@ -66,11 +66,11 @@ Geração e gerenciamento de QR Codes PIX para cobranças instantâneas.
 
 ---
 
-### 4. **Transferências PIX** 💸
-Processamento de transferências PIX entre contas.
+### 4. **Transferências Pix** 💸
+Processamento de transferências Pix entre contas.
 
 **Funcionalidades:**
-- Inicializar pagamentos via chave PIX
+- Inicializar pagamentos via chave Pix
 - Inicializar pagamentos via QR Code
 - Consultar status de transferências
 - Obter detalhes de transações

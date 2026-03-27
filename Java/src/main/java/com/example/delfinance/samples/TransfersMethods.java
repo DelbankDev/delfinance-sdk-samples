@@ -17,10 +17,10 @@ public class TransfersMethods {
         System.out.println("[RUN] getTransfer");
         logResult("getTransfer", service.getTransfer(optionalEnv("TRANSFER_ID", "2a2f3057-9974-4b05-8069-fb69c362c369")));
 
-        // Internal / PIX transfer (via beneficiaryAccount)
+        // Internal / Pix transfer (via beneficiaryAccount)
         CreateTransferRequest transferRequest = new CreateTransferRequest.Builder()
                 .amount(new BigDecimal(optionalEnv("AMOUNT", "100")))
-                .description("Pagamento PIX de teste")
+                .description("Pagamento Pix de teste")
                 .endToEndId(optionalEnv("END_TO_END_ID", "E12345678901234567890123456789012"))
                 .beneficiaryAccount(optionalEnv("BENEFICIARY_ACCOUNT", "42790"))
                 .build();

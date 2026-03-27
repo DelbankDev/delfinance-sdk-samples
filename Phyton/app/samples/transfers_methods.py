@@ -23,7 +23,7 @@ def sample_transfers(service: TransfersService) -> None:
 
     transfer_request = CreateTransferRequest(
         amount=float(optional_env("AMOUNT", "100")),
-        description="Pagamento PIX de teste",
+        description="Pagamento Pix de teste",
         end_to_end_id=optional_env("END_TO_END_ID", "E12345678901234567890123456789012"),
         beneficiary_account=optional_env("BENEFICIARY_ACCOUNT", "42790"),
     )

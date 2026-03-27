@@ -15,9 +15,9 @@ O projeto foi completamente refatorado para melhorar organização, manutenibili
 
 #### Controllers Criados:
 - **`DelSdkBaseController`** - Classe base compartilhada
-- **`PixQrCodeController`** - Gerenciamento de QR Codes PIX (10 endpoints)
-- **`PixTransferController`** - Transferências PIX e TED (6 endpoints)
-- **`PixKeyController`** - Gerenciamento de chaves PIX (4 endpoints)
+- **`PixQrCodeController`** - Gerenciamento de QR Codes Pix (10 endpoints)
+- **`PixTransferController`** - Transferências Pix e TED (6 endpoints)
+- **`PixKeyController`** - Gerenciamento de chaves Pix (4 endpoints)
 - **`ChargeController`** - Cobranças e boletos (2 endpoints)
 - **`WebhookController`** - Gerenciamento de webhooks (5 endpoints)
 - **`ExamplesController`** - Exemplos de uso (4 endpoints)
@@ -142,9 +142,9 @@ DelfinanceSDK/
 ├── Controllers/
 │   ├── Base/
 │   │   └── DelSdkBaseController.cs       # Classe base
-│   ├── PixQrCodeController.cs            # QR Codes PIX
+│   ├── PixQrCodeController.cs            # QR Codes Pix     
 │   ├── PixTransferController.cs          # Transferências
-│   ├── PixKeyController.cs               # Chaves PIX
+│   ├── PixKeyController.cs               # Chaves Pix       
 │   ├── ChargeController.cs               # Cobranças
 │   ├── WebhookController.cs              # Webhooks
 │   └── ExamplesController.cs             # Exemplos
@@ -170,7 +170,7 @@ DelfinanceSDK/
 | Controller | Endpoints | Funcionalidade |
 |------------|-----------|----------------|
 | PixQrCode | 10 | QR Codes (estático, dinâmico, com vencimento) |
-| PixTransfer | 6 | Transferências PIX e TED |
+| PixTransfer | 6 | Transferências Pix e TED |
 | PixKey | 4 | Gerenciamento de chaves |
 | Charge | 2 | Cobranças e pagamentos |
 | Webhook | 5 | Webhooks (CRUD completo) |

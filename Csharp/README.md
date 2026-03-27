@@ -25,7 +25,7 @@ dotnet run
 
 ## Módulos disponíveis no menu
 
-### PIX QR Code
+### Pix QR Code
 
 - Criar QR Code estático
 - Consultar QR Code estático
@@ -42,12 +42,12 @@ dotnet run
 
 - Inicializar pagamento (DICT)
 - Inicializar pagamento (QR Code)
-- Criar transferência PIX
-- Consultar transferência PIX
+- Criar transferência Pix
+- Consultar transferência Pix
 - Criar transferência TED
 - Consultar transferência TED
 
-### Chaves PIX
+### Chaves Pix
 
 - Gerar código de autenticação
 - Criar chave

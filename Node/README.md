@@ -83,8 +83,8 @@ O arquivo `.env` na raiz do projeto contém todas as variáveis necessárias par
 - `SOURCE_HOLDER_EMAIL` - Email do titular
 - `SOURCE_HOLDER_NAME` - Nome do titular
 
-**PIX (obrigatório para operações PIX):**
-- `PIX_KEY` - Chave PIX
+**Pix (obrigatório para operações Pix):**
+- `PIX_KEY` - Chave Pix
 
 **Beneficiário (obrigatório para transferências):**
 - `BENEFICIARY_ACCOUNT` - Conta destino
@@ -114,8 +114,8 @@ O arquivo `.env` na raiz do projeto contém todas as variáveis necessárias par
 ## Estrutura do Projeto
 
 - `sample.ts`: Orquestrador principal que cria o cliente SDK e executa todos os samples
-- `samples/pixTransfer.ts` - Exemplos de transferências PIX e TED
-- `samples/pixKeys.ts` - Exemplos de gerenciamento de chaves PIX
+- `samples/pixTransfer.ts` - Exemplos de transferências Pix e TED
+- `samples/pixKeys.ts` - Exemplos de gerenciamento de chaves Pix
 - `samples/pixQRCode.ts` - Exemplos de criação e consulta de QR Codes
 - `samples/webHook.ts` - Exemplos de gerenciamento de webhooks
 - `samples/bankSlip.ts` - Exemplos de cobranças (boletos)
@@ -150,7 +150,7 @@ Se aparecer erro como `Env XYZ não definida`, significa que a variável não ex
 
 O cliente SDK oferece os seguintes serviços:
 
-- **pixService** - Operações PIX (transferências, chaves, QR Codes)
+- **pixService** - Operações Pix (transferências, chaves, QR Codes)
 - **webHookService** - Gerenciamento de webhooks
 - **bankSlipService** - Gerenciamento de boletos/cobranças
 

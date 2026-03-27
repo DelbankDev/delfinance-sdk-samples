@@ -69,26 +69,26 @@ internal sealed class DelSdkConsoleApp
             Console.WriteLine();
             Console.WriteLine("Selecione uma operação:");
             Console.WriteLine("1  - Mostrar configuração carregada");
-            Console.WriteLine("2  - PIX: Criar QR Code estático");
-            Console.WriteLine("3  - PIX: Consultar QR Code estático");
-            Console.WriteLine("4  - PIX: Listar pagamentos QR Code estático");
-            Console.WriteLine("5  - PIX: Cancelar QR Code estático");
-            Console.WriteLine("6  - PIX: Criar QR Code dinâmico imediato");
-            Console.WriteLine("7  - PIX: Consultar QR Code dinâmico imediato");
-            Console.WriteLine("8  - PIX: Cancelar QR Code dinâmico imediato");
-            Console.WriteLine("9  - PIX: Criar QR Code dinâmico com vencimento");
-            Console.WriteLine("10 - PIX: Consultar QR Code dinâmico com vencimento");
-            Console.WriteLine("11 - PIX: Cancelar QR Code dinâmico com vencimento");
+            Console.WriteLine("2  - Pix: Criar QR Code estático");
+            Console.WriteLine("3  - Pix: Consultar QR Code estático");      
+            Console.WriteLine("4  - Pix: Listar pagamentos QR Code estático");
+            Console.WriteLine("5  - Pix: Cancelar QR Code estático");       
+            Console.WriteLine("6  - Pix: Criar QR Code dinâmico imediato"); 
+            Console.WriteLine("7  - Pix: Consultar QR Code dinâmico imediato");
+            Console.WriteLine("8  - Pix: Cancelar QR Code dinâmico imediato");
+            Console.WriteLine("9  - Pix: Criar QR Code dinâmico com vencimento");
+            Console.WriteLine("10 - Pix: Consultar QR Code dinâmico com vencimento");
+            Console.WriteLine("11 - Pix: Cancelar QR Code dinâmico com vencimento");
             Console.WriteLine("12 - Transferência: Inicializar pagamento (DICT)");
             Console.WriteLine("13 - Transferência: Inicializar pagamento (QR Code)");
-            Console.WriteLine("14 - Transferência: Criar PIX");
-            Console.WriteLine("15 - Transferência: Consultar PIX");
+            Console.WriteLine("14 - Transferência: Criar Pix");
+            Console.WriteLine("15 - Transferência: Consultar Pix");
             Console.WriteLine("16 - Transferência: Criar TED");
             Console.WriteLine("17 - Transferência: Consultar TED");
-            Console.WriteLine("18 - Chaves PIX: Gerar código de autenticação");
-            Console.WriteLine("19 - Chaves PIX: Criar chave");
-            Console.WriteLine("20 - Chaves PIX: Listar chaves");
-            Console.WriteLine("21 - Chaves PIX: Deletar chave");
+            Console.WriteLine("18 - Chaves Pix: Gerar código de autenticação");
+            Console.WriteLine("19 - Chaves Pix: Criar chave");
+            Console.WriteLine("20 - Chaves Pix: Listar chaves");
+            Console.WriteLine("21 - Chaves Pix: Deletar chave");
             Console.WriteLine("22 - Cobrança: Criar cobrança");
             Console.WriteLine("23 - Cobrança: Pagar boleto");
             Console.WriteLine("24 - Webhook: Criar webhook");
@@ -143,10 +143,10 @@ internal sealed class DelSdkConsoleApp
                     await ExecuteAsync("Inicializar pagamento QR Code", InitializeQrCodePaymentAsync);
                     break;
                 case "14":
-                    await ExecuteAsync("Criar transferência PIX", CreatePixTransferAsync);
+                    await ExecuteAsync("Criar transferência Pix", CreatePixTransferAsync);
                     break;
                 case "15":
-                    await ExecuteAsync("Consultar transferência PIX", GetPixTransferAsync);
+                    await ExecuteAsync("Consultar transferência Pix", GetPixTransferAsync);
                     break;
                 case "16":
                     await ExecuteAsync("Criar transferência TED", CreateTedTransferAsync);
@@ -155,16 +155,16 @@ internal sealed class DelSdkConsoleApp
                     await ExecuteAsync("Consultar transferência TED", GetTedTransferAsync);
                     break;
                 case "18":
-                    await ExecuteAsync("Gerar código de autenticação de chave PIX", GeneratePixAuthCodeAsync);
+                    await ExecuteAsync("Gerar código de autenticação de chave Pix", GeneratePixAuthCodeAsync);
                     break;
                 case "19":
-                    await ExecuteAsync("Criar chave PIX", CreatePixKeyAsync);
+                    await ExecuteAsync("Criar chave Pix", CreatePixKeyAsync);
                     break;
                 case "20":
-                    await ExecuteAsync("Listar chaves PIX", ListPixKeysAsync);
+                    await ExecuteAsync("Listar chaves Pix", ListPixKeysAsync);
                     break;
                 case "21":
-                    await ExecuteAsync("Deletar chave PIX", DeletePixKeyAsync);
+                    await ExecuteAsync("Deletar chave Pix", DeletePixKeyAsync);
                     break;
                 case "22":
                     await ExecuteAsync("Criar cobrança", CreateChargeAsync);
@@ -355,7 +355,7 @@ internal sealed class DelSdkConsoleApp
     private async Task<object?> CreatePixTransferAsync(CancellationToken cancellationToken)
     {
         var request = ReadRequestFromJson<CreateTransferRequest>(
-            "Criação de transferência PIX",
+            "Criação de transferência Pix",
             SampleRequests.CreatePixTransferJson());
 
         var pixClient = SdkClientFactory.CreatePixServicesClient(options);
@@ -366,7 +366,7 @@ internal sealed class DelSdkConsoleApp
     private async Task<object?> GetPixTransferAsync(CancellationToken cancellationToken)
     {
         var identifier = ReadRequiredString(
-            "Informe o identificador da transferência PIX",
+            "Informe o identificador da transferência Pix",
             new[] { "TRANSFER_ID", "END_TO_END_ID" });
 
         var pixClient = SdkClientFactory.CreatePixServicesClient(options);
@@ -397,7 +397,7 @@ internal sealed class DelSdkConsoleApp
     private async Task<object?> GeneratePixAuthCodeAsync(CancellationToken cancellationToken)
     {
         var request = ReadRequestFromJson<GenerateAuthCodeRequest>(
-            "Geração de código de autenticação de chave PIX",
+            "Geração de código de autenticação de chave Pix",
             SampleRequests.GenerateAuthCodeJson());
 
         var pixClient = SdkClientFactory.CreatePixServicesClient(options);
@@ -408,7 +408,7 @@ internal sealed class DelSdkConsoleApp
     private async Task<object?> CreatePixKeyAsync(CancellationToken cancellationToken)
     {
         var request = ReadRequestFromJson<CreatePixKeyRequest>(
-            "Criação de chave PIX",
+            "Criação de chave Pix",
             SampleRequests.CreatePixKeyJson());
 
         var authCode = ReadOptionalString("AuthCode (opcional)", "PIX_KEY_AUTH_CODE");
@@ -432,13 +432,13 @@ internal sealed class DelSdkConsoleApp
 
     private async Task<object?> DeletePixKeyAsync(CancellationToken cancellationToken)
     {
-        var key = ReadRequiredString("Informe a chave PIX para remover", new[] { "PIX_KEY" });
+        var key = ReadRequiredString("Informe a chave Pix para remover", new[] { "PIX_KEY" });
         var request = new DeletePixKeyRequest { Key = key };
 
         var pixClient = SdkClientFactory.CreatePixServicesClient(options);
         var idempotencyKey = Guid.NewGuid().ToString();
         await pixClient.DeletePixKeyAsync(request, idempotencyKey, cancellationToken);
-        return new { Message = "Chave PIX removida com sucesso" };
+        return new { Message = "Chave Pix removida com sucesso" };
     }
 
     private async Task<object?> CreateChargeAsync(CancellationToken cancellationToken)
@@ -757,7 +757,7 @@ internal static class SampleRequests
 {
   "endToEndId": "{{EnvReader.GetString("END_TO_END_ID", "E00000000000000000000000000000")}}",
   "amount": {{EnvReader.GetDecimal("AMOUNT", 1m).ToString(System.Globalization.CultureInfo.InvariantCulture)}},
-  "description": "Transferência PIX via sample console"
+    "description": "Transferência Pix via sample console"
 }
 """;
 

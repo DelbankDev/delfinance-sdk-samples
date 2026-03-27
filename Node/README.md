@@ -91,7 +91,7 @@ O arquivo `.env` na raiz do projeto contém todas as variáveis necessárias par
 - `BENEFICIARY_BRANCH` - Agência destino
 - `BENEFICIARY_HOLDER_NAME` - Nome do beneficiário
 - `BENEFICIARY_HOLDER_DOCUMENT` - CPF/CNPJ do beneficiário
-- `BENEFICIARY_HOLDER_DOCUMENT_TYPE` - Tipo do documento (PHYSICAL ou LEGAL)
+- `BENEFICIARY_HOLDER_DOCUMENT_TYPE` - Tipo do documento (NATURAL ou LEGAL)
 - `ISPB` - ISPB da instituição destino
 
 **Valores de Teste:**

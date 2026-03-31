@@ -8,8 +8,14 @@ Projeto Maven Java minimo para testar a integracao com `br.com.delfinance:delfin
 <dependency>
     <groupId>br.com.delfinance</groupId>
     <artifactId>delfinance-api-sdk</artifactId>
-    <version>0.7.3</version>
+    <version>0.8.0</version>
 </dependency>
+```
+
+Referencia PURL:
+
+```text
+pkg:maven/br.com.delfinance/delfinance-api-sdk@0.8.0
 ```
 
 ## Pre-requisitos

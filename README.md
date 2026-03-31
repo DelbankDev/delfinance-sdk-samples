@@ -108,6 +108,19 @@ Recebimento de notificações de eventos do sistema em tempo real.
 - Credenciais da Delfinance API (API Key e API Secret)
 - Variáveis de ambiente configuradas (consultar arquivo `.env` em cada diretório)
 
+### Referências de instalação dos SDKs (atualizado)
+
+```bash
+pip install delfinance-api-sdk
+composer require delfinance/delfinance-api-sdk
+npm i @delbank/delfinance-api-sdk
+dotnet add package delfinance-api-sdk --version 0.2.5
+```
+
+```text
+pkg:maven/br.com.delfinance/delfinance-api-sdk@0.8.0
+```
+
 ### Estrutura de Diretórios
 ```
 delfinance-sdk-samples/

@@ -7,6 +7,12 @@ Projeto console em .NET 10 para executar chamadas do DelSDK direto no terminal, 
 - .NET SDK 10
 - Credenciais Delfinance no `.env` ou `appsettings.json`
 
+## Instalação do SDK
+
+```bash
+dotnet add package delfinance-api-sdk --version 0.2.5
+```
+
 ## Configuração
 
 A aplicação prioriza variáveis do `.env` e usa `appsettings.json` como fallback.

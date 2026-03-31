@@ -16,6 +16,12 @@ SAMPLE/
 
 ## Setup
 
+Comando de referência para instalar o SDK:
+
+```bash
+pip install delfinance-api-sdk
+```
+
 1. Criar ambiente virtual:
 ```bash
 python -m venv venv

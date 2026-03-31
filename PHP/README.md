@@ -14,6 +14,12 @@ No diretório do projeto, rode:
 php composer.phar install
 ```
 
+Referência para adicionar o SDK via Composer:
+
+```bash
+composer require delfinance/delfinance-api-sdk
+```
+
 ## Configuração
 
 1. Crie o arquivo `.env` (ou use o que já existe).

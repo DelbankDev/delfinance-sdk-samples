@@ -20,7 +20,7 @@
         <dependency>
             <groupId>br.com.delfinance</groupId>
             <artifactId>delfinance-api-sdk</artifactId>
-            <version>0.7.3</version>
+            <version>0.8.0</version>
         </dependency>
 
         <dependency>

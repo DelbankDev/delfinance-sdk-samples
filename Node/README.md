@@ -9,6 +9,12 @@ Este projeto executa exemplos do SDK Delfinance por módulos:
 
 ## Como executar
 
+Comando de referência para instalar o SDK:
+
+```bash
+npm i @delbank/delfinance-api-sdk
+```
+
 1. Instale dependências:
 
 ```bash
